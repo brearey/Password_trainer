@@ -1,0 +1,38 @@
+.container {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.main {
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.reliability {
+    margin-top: 10px;
+}
+
+#strength-meter {
+    color: green;
+    font-size: 2rem;
+}
+
+#recommendations {
+    margin-top: 10px;
+    color: #888;
+}
+
+.footer {
+    position: absolute;
+    text-align: center;
+    bottom: 10px;
+}

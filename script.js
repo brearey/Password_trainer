@@ -1,3 +1,8 @@
+const lava = document.querySelector('.lava');
+// init top value is 150
+// to up lava on X pixels let subtract 150 - X
+lava.style.top = 100 + 'px'; //it's work
+
 function checkPasswordStrength() {
     const password = document.getElementById('password').value;
     const strengthMeter = document.getElementById('strength-meter');

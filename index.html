@@ -11,11 +11,13 @@
 <body>
     <div class="container">
         <div class="main">
-            <div class="logo">
-                <img src="./img/noc.jpg" alt="noc" height="120" width="120">
+            <div class="game-window">
+                <img src="./img/emojies/emoji_level_1.png" alt="noc" height="240" width="240">
+                <div class="lava"></div>
             </div>
-            <h1>Тренажер для создания надежного пароля</h1>
+            <h3>Выполняйте задания чтобы спасти Emoji</h3>
             <label for="password">Введите пароль:</label>
+            <br>
             <input type="password" id="password" oninput="checkPasswordStrength()">
             <div class="reliability">Надежность пароля:</div>
             <div id="strength-meter"></div>
@@ -23,6 +25,7 @@
         </div>
         <div class="footer">
             <h3>Автор: Слепцов Данил</h3>
+            <img src="./img/noc.jpg" alt="noc" height="60" width="60">
             <p>ученик 5-го класса МБНОУ "Октемский НОЦ им. М.Е. Николаева"</p>
             <p>Республика Саха (Якутия)</p>
             <p>Чапаево, 2023 год</p>

@@ -1,7 +1,22 @@
+// Find elements from DOM
 const lava = document.querySelector('.lava');
+const messageH3 = document.querySelector('.message');
+
+// Init variables and constants
+let current_top = 160;
+const tick = 2000; // milliseconds
+const top_step = 5;
+const tasks = [
+    'Придумайте пароль сложности ☆',
+    'Придумайте пароль сложности ☆☆',
+    'Придумайте пароль сложности ☆☆☆',
+    'Придумайте пароль сложности ☆☆☆☆',
+    'Придумайте пароль сложности ☆☆☆☆☆',
+];
 // init top value is 150
 // to up lava on X pixels let subtract 150 - X
-lava.style.top = 100 + 'px'; //it's work
+// game over in top = -85px
+lava.style.top = current_top + 'px'; //it's work
 
 function checkPasswordStrength() {
     const password = document.getElementById('password').value;
@@ -58,3 +73,32 @@ function getRecommendations(strength) {
             return "";
     }
 }
+
+function gameTick() {
+    console.log('Call gameTick');
+    current_top = current_top - top_step;
+    updateUI();
+}
+
+function updateUI() {
+    lava.style.top = current_top + 'px';
+    messageH3.innerHTML = getRandomTask();
+}
+
+function getRandomTask() {
+    const tasksCount = tasks.length;
+    const randomIndex = Math.floor(Math.random() * tasksCount);
+    return tasks[randomIndex];
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    try {
+        // Main thread
+        setInterval(
+            gameTick,
+            tick
+        );
+    } catch (error) {
+        console.error(error);
+    }
+});

@@ -1,9 +1,14 @@
 // Find elements from DOM
 const lava = document.querySelector('.lava');
 const messageH3 = document.querySelector('.message');
+const smileImg = document.getElementById('smile');
 
 // Init variables and constants
 let current_top = 160;
+let current_level_scores = 0;
+const level_threshold = 45;
+const top_death = -85;
+let current_level = 1;
 const tick = 2000; // milliseconds
 const top_step = 5;
 const tasks = [
@@ -13,7 +18,7 @@ const tasks = [
     'Придумайте пароль сложности ☆☆☆☆',
     'Придумайте пароль сложности ☆☆☆☆☆',
 ];
-// init top value is 150
+// init top value is 160
 // to up lava on X pixels let subtract 150 - X
 // game over in top = -85px
 lava.style.top = current_top + 'px'; //it's work
@@ -77,12 +82,21 @@ function getRecommendations(strength) {
 function gameTick() {
     console.log('Call gameTick');
     current_top = current_top - top_step;
+    current_level_scores = current_level_scores + top_step;
+    if (current_level_scores >= level_threshold && current_level <= 6) {
+        current_level_scores = 0;
+        current_level = current_level + 1;
+    }
+    console.log(current_level);
     updateUI();
 }
 
 function updateUI() {
+    // Подъем лавы
     lava.style.top = current_top + 'px';
     messageH3.innerHTML = getRandomTask();
+    // Изменение эмоции
+    smileImg.src = `./img/emojies/emoji_level_${current_level}.png`;
 }
 
 function getRandomTask() {
